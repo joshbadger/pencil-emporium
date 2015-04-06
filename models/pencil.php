@@ -64,5 +64,29 @@
       $row = $stmt->fetch(PDO::FETCH_ASSOC);
       $this->name = $row['name'];
     }
+
+    function upVote(){
+      $query = "UPDATE $this->table_name SET votes = votes + 1 WHERE id = ?";
+      $stmt = $this->conn->prepare($query);
+      $stmt->bindParam(1,$this->id);
+
+      if ($stmt->execute()){
+        return true;
+      }else{
+        return false;
+      }
+    }
+
+    function downVote(){
+      $query = "UPDATE $this->table_name SET votes = votes - 1 WHERE id = ?";
+      $stmt = $this->conn->prepare($query);
+      $stmt->bindParam(1,$this->id);
+
+      if ($stmt->execute()){
+        return true;
+      }else{
+        return false;
+      }
+    }
   }
 ?>

@@ -23,7 +23,7 @@
 ?>
 
 <div class='right-button-margin'>
-  <a href='index.php' class='btn btn-default pull-right'>Show Pencils</a>
+  <a href='index.php' class='btn btn-primary pull-right'>Show Pencils</a>
 </div>
 
 

@@ -5,7 +5,7 @@
 ?>
 
 <div class='right-button-margin'>
-  <a href='create_pencil.php' class='btn btn-default pull-right'>Create a New Pencil</a>
+  <a href='create_pencil.php' class='btn btn-primary pull-right'>Create a New Pencil</a>
 </div>
 
 <?php
@@ -18,12 +18,12 @@
 
   if($pencils->rowCount() > 0){
 
-    echo "<table class=\"table table-striped\">
+    echo "<table class='table table-striped'>
             <thead>
               <tr>
+                <td></td>
                 <td>Name</td>
                 <td>Votes</td>
-                <td></td>
                 <td></td>
               </tr>
             </thead>
@@ -33,15 +33,15 @@
       extract($pencil);
 
       echo "<tr>
+              <td>
+                <a voted-id='$id' class='glyphicon glyphicon-arrow-up upvote'></a> |
+                <a voted-id='$id' class='glyphicon glyphicon-arrow-down downvote'></a>
+              </td>
               <td>$name</td>
               <td>$votes</td>
               <td>
                 <a href='update_pencil.php?id=$id' class='btn btn-success'>Edit</a>
                 <a delete-id='$id' class='btn btn-danger delete-pencil'>Delete</a>
-                <div class='pull-right'>
-                  <a href=\"#\">upvote</a> |
-                  <a href=\"#\">downvote</a>
-                </div>
               </td>
             </tr>";
     }
@@ -50,26 +50,5 @@
         </table>';
   }
 ?>
-
-<script>
-  $(document).on('click', '.delete-pencil', function(){
-
-      var id = $(this).attr('delete-id');
-      var q = confirm("Are you sure?");
-
-      if (q == true){
-
-        $.post('delete_pencil.php', {
-            pencil_id: id
-        }, function(data){
-            location.reload();
-        }).fail(function() {
-            alert('Rats. Your Pencil was not deleted.');
-        });
-
-      }
-      return false;
-  });
-</script>
 
 <?php include_once 'footer.php'; ?>

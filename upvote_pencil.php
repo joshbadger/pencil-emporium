@@ -6,7 +6,7 @@
   $link = $database->connect();
 
   $pencil = new Pencil($link);
-  $pencil->id = $_POST['pencil_id'];
+  $pencil->id = $_POST['voted_id'];
 
-  $pencil->delete();
+  $pencil->upVote();
 ?>
