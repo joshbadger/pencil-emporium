@@ -35,7 +35,7 @@
 <form action="update_pencil.php?id=<?php echo $id ?>" method="post">
 
   <label>
-    Name <input type="text" name="name" value='<?php echo $pencil->name; ?>' size=30 required>
+    Name <input type="text" name="name" value="<?php echo $pencil->name; ?>" size=30 required>
   </label>
 
   <input type="submit" value="Update Pencil" class="btn btn-primary">
