@@ -36,7 +36,7 @@
               <td>$name</td>
               <td>$votes</td>
               <td>
-                <a href=\"#\">Edit</a> |
+                <a href=\"update_pencil.php?id=$id\">Edit</a> |
                 <a href=\"#\">Delete</a>
                 <div class=\"pull-right\">
                   <a href=\"#\">upvote</a> |
